@@ -72,8 +72,12 @@ Where:
 * [password] = The password used to connect on FTP server.
 
 ####Local folder
-```bash
-mono BackupSharp.CommandLine.exe --sourceName=LocalFolder --sourceArgs=[source id],[source folder] --destinationName=[destination] --destinationArgs=[destination args]
+```terminal
+mono BackupSharp.CommandLine.exe 
+--sourceName=LocalFolder 
+--sourceArgs=[source id],[source folder] 
+--destinationName=[destination] 
+--destinationArgs=[destination args]
 ```
 Where:
 * [source id] = The ID used to identify source.
@@ -81,13 +85,19 @@ Where:
 
 ####MySQL
 ```bash
-mono BackupSharp.CommandLine.exe --sourceName=MySql --sourceArgs=[connection string] --destinationName=[destination] --destinationArgs=[destination args]
+mono BackupSharp.CommandLine.exe 
+--sourceName=MySql 
+--sourceArgs=[connection string] 
+--destinationName=[destination] 
+--destinationArgs=[destination args]
 ```
 Where:
 * [connection string] = The connection string to MySQL database.
 
-###Command-line destination arguments
-###Command-line samples  
+###Destination arguments
+
+###Samples  
+
 ####Ftp2Dropbox
 Backup items from a FTP server to a Dropbox account:
 ```bash
