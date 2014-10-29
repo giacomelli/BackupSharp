@@ -109,9 +109,8 @@ Where:
 * [API secret] = App secrect from Dropbox developer App Console.
 * [access token] = Access token from Dropbox developer App Console.
 
-```
-To use the Dropbox destination you will need to create a app on Dropbox developer App Console (https://www.dropbox.com/developers/apps), then access the app details where you can get the API key, API secret and the access token ('Generate acces token`).
-```
+
+> To use the Dropbox destination you will need to create a app on Dropbox developer App Console (https://www.dropbox.com/developers/apps), then access the app details where you can get the API key, API secret and the access token ('Generate acces token`).
 
 ####Local folder
 ```
