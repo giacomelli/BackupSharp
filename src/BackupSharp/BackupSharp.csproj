@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04B827FF-7BEF-4730-A49B-156965471A92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BackupSharp</RootNamespace>
+    <AssemblyName>BackupSharp</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release\BackupSharp.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.3\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="HelperSharp">
+      <HintPath>..\packages\HelperSharp.0.0.3.7\lib\net35\HelperSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="DropNet">
+      <HintPath>..\packages\DropNet.1.9.6\lib\net40\DropNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.FtpClient">
+      <HintPath>..\references\System.Net.FtpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Abstractions">
+      <HintPath>..\packages\System.IO.Abstractions.1.4.0.66\lib\net35\System.IO.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Skahal.Infrastructure.Framework">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.0.6.2\lib\net35\Skahal.Infrastructure.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.ConnectorNET.Data.6.8.3.2\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlBackup">
+      <HintPath>..\packages\MySqlBackup.NET.2.0.4\lib\net40\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackupItemStoredEventArgs.cs" />
+    <Compile Include="INamingStrategy.cs" />
+    <Compile Include="Naming\NamingStrategyBase.cs" />
+    <Compile Include="Naming\SourceIdNamingStrategy.cs" />
+    <Compile Include="Naming\DateNamingStrategy.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Backup.cs" />
+    <Compile Include="BackupContext.cs" />
+    <Compile Include="BackupResult.cs" />
+    <Compile Include="BackupItemEventArgs.cs" />
+    <Compile Include="IBackupSource.cs" />
+    <Compile Include="Sources\LocalFolderBackupSource.cs" />
+    <Compile Include="Sources\MySqlBackupSource.cs" />
+    <Compile Include="Sources\BackupSourceBase.cs" />
+    <Compile Include="Sources\FtpBackupSource.cs" />
+    <Compile Include="BackupItem.cs" />
+    <Compile Include="IBackupDestination.cs" />
+    <Compile Include="Destinations\DropboxBackupDestination.cs" />
+    <Compile Include="PathHelper.cs" />
+    <Compile Include="Destinations\BackupDestinationBase.cs" />
+    <Compile Include="FileHelper.cs" />
+    <Compile Include="IBackupStep.cs" />
+    <Compile Include="Destinations\LocalFolderBackupDestination.cs" />
+    <Compile Include="IBackupItem.cs" />
+    <Compile Include="BackupItemStats.cs" />
+    <Compile Include="BackupItemFoundEventArgs.cs" />
+    <Compile Include="Destinations\ZipBackupDestination.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup />
+</Project>

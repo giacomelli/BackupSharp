@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBD280D3-530F-4B62-9385-0F73AB1B2197}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BackupSharp.FunctionalTests</RootNamespace>
+    <AssemblyName>BackupSharp.FunctionalTests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HelperSharp, Version=1.0.5358.23405, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HelperSharp.0.0.4.1\lib\net35\HelperSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework" />
+    <Reference Include="Ionic.Utils.Zip">
+      <HintPath>..\packages\TestSharp.1.0.2\lib\net40\Ionic.Utils.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="TestSharp">
+      <HintPath>..\packages\TestSharp.1.0.2\lib\net40\TestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="DropNet">
+      <HintPath>..\packages\DropNet.1.9.6\lib\net40\DropNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="Stubs\SubFolder1\File1.1.txt" />
+    <Content Include="Stubs\SubFolder1\File1.2.txt" />
+    <Content Include="Stubs\SubFolder1\SubFolder12\File12.1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Destinations\LocalFolderBackupDestinationTest.cs" />
+    <Compile Include="Sources\LocalFolderBackupSourceTest.cs" />
+    <Compile Include="Sources\MySqlBackupSourceTest.cs" />
+    <Compile Include="BackupTest.cs" />
+    <Compile Include="Sources\FtpBackupSourceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BackupSharp\BackupSharp.csproj">
+      <Project>{04B827FF-7BEF-4730-A49B-156965471A92}</Project>
+      <Name>BackupSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Stubs\SubFolder2\" />
+  </ItemGroup>
+</Project>

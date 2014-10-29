@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupSharp", "BackupSharp\BackupSharp.csproj", "{04B827FF-7BEF-4730-A49B-156965471A92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupSharp.FunctionalTests", "BackupSharp.FunctionalTests\BackupSharp.FunctionalTests.csproj", "{FBD280D3-530F-4B62-9385-0F73AB1B2197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupSharp.CommandLine", "BackupSharp.CommandLine\BackupSharp.CommandLine.csproj", "{C2F69492-9AC5-48CB-9306-A884D78D3520}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupSharp.UnitTests", "BackupSharp.UnitTests\BackupSharp.UnitTests.csproj", "{CC130464-D298-4B1E-9036-0C2F297A7A09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupSharp.CommandLine.FunctionalTests", "BackupSharp.CommandLine.FunctionalTests\BackupSharp.CommandLine.FunctionalTests.csproj", "{349E5C22-6A7F-4364-83E9-18CA9F4DDF1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04B827FF-7BEF-4730-A49B-156965471A92}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{04B827FF-7BEF-4730-A49B-156965471A92}.Debug|x86.Build.0 = Debug|Any CPU
+		{04B827FF-7BEF-4730-A49B-156965471A92}.Release|x86.ActiveCfg = Release|Any CPU
+		{04B827FF-7BEF-4730-A49B-156965471A92}.Release|x86.Build.0 = Release|Any CPU
+		{349E5C22-6A7F-4364-83E9-18CA9F4DDF1E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{349E5C22-6A7F-4364-83E9-18CA9F4DDF1E}.Debug|x86.Build.0 = Debug|Any CPU
+		{349E5C22-6A7F-4364-83E9-18CA9F4DDF1E}.Release|x86.ActiveCfg = Release|Any CPU
+		{349E5C22-6A7F-4364-83E9-18CA9F4DDF1E}.Release|x86.Build.0 = Release|Any CPU
+		{C2F69492-9AC5-48CB-9306-A884D78D3520}.Debug|x86.ActiveCfg = Debug|x86
+		{C2F69492-9AC5-48CB-9306-A884D78D3520}.Debug|x86.Build.0 = Debug|x86
+		{C2F69492-9AC5-48CB-9306-A884D78D3520}.Release|x86.ActiveCfg = Release|x86
+		{C2F69492-9AC5-48CB-9306-A884D78D3520}.Release|x86.Build.0 = Release|x86
+		{CC130464-D298-4B1E-9036-0C2F297A7A09}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CC130464-D298-4B1E-9036-0C2F297A7A09}.Debug|x86.Build.0 = Debug|Any CPU
+		{CC130464-D298-4B1E-9036-0C2F297A7A09}.Release|x86.ActiveCfg = Release|Any CPU
+		{CC130464-D298-4B1E-9036-0C2F297A7A09}.Release|x86.Build.0 = Release|Any CPU
+		{FBD280D3-530F-4B62-9385-0F73AB1B2197}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FBD280D3-530F-4B62-9385-0F73AB1B2197}.Debug|x86.Build.0 = Debug|Any CPU
+		{FBD280D3-530F-4B62-9385-0F73AB1B2197}.Release|x86.ActiveCfg = Release|Any CPU
+		{FBD280D3-530F-4B62-9385-0F73AB1B2197}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = BackupSharp.CommandLine\BackupSharp.CommandLine.csproj
+	EndGlobalSection
+EndGlobal
