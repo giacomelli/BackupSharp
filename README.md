@@ -59,7 +59,7 @@ mono BackupSharp.CommandLine.exe --help
 ###Source arguments
 
 ####FTP
-```bash
+```
 mono BackupSharp.CommandLine.exe 
 --sourceName=FTP 
 --sourceArgs=[server address],[username],[password] 
@@ -72,7 +72,7 @@ Where:
 * [password] = The password used to connect on FTP server.
 
 ####Local folder
-```terminal
+```
 mono BackupSharp.CommandLine.exe 
 --sourceName=LocalFolder 
 --sourceArgs=[source id],[source folder] 
@@ -84,7 +84,7 @@ Where:
 * [source folder] = The path to the source folder.
 
 ####MySQL
-```bash
+```
 mono BackupSharp.CommandLine.exe 
 --sourceName=MySql 
 --sourceArgs=[connection string] 
@@ -96,56 +96,70 @@ Where:
 
 ###Destination arguments
 
+####Dropbox
+```
+mono BackupSharp.CommandLine.exe 
+--sourceName=[source] 
+--sourceArgs=[source args] 
+--destinationName=Dropbox 
+--destinationArgs=[API key],[API secret],[access token]
+```
+Where:
+* [API key] = App key from Dropbox developer App Console.
+* [API secret] = App secrect from Dropbox developer App Console.
+* [access token] = Access token from Dropbox developer App Console.
+
+```
+To use the Dropbox destination you will need to create a app on Dropbox developer App Console (https://www.dropbox.com/developers/apps), then access the app details where you can get the API key, API secret and the access token ('Generate acces token`).
+```
+
+####Local folder
+```
+mono BackupSharp.CommandLine.exe 
+--sourceName=[source] 
+--sourceArgs=[source args] 
+--destinationName=LocalFolder 
+--destinationArgs=[destination folder]
+```
+Where:
+* [destination folder] = The destination folder path.
+
+####Zip
+```
+mono BackupSharp.CommandLine.exe 
+--sourceName=[source] 
+--sourceArgs=[source args] 
+--destinationName=Zip 
+--destinationArgs=[destination folder]
+```
+Where:
+* [destination folder] = The destination folder where the Zip file will be generated.
+
 ###Samples  
 
 ####Ftp2Dropbox
 Backup items from a FTP server to a Dropbox account:
-```bash
+```
 mono BackupSharp.CommandLine.exe --sourceName=FTP --sourceArgs=[server address],[username],[password] --destinationName=Dropbox --destinationArgs=[API key],[API secret], [access token]
 ```
-Where:
-* [server address] = The address/IP of the source FTP server.
-* [username] = The username used to connect on FTP server.
-* [password] = The password used to connect on FTP server.
-* [API key] = ?
-* [API secret] = ?
-* [access token] = ?
-  
 
 ####Ftp2LocalFolder
 Backup items from a FTP server to a local folder:
-```bash
+```
 mono BackupSharp.CommandLine.exe --sourceName=FTP --sourceArgs=[server address],[username],[password] --destinationName=LocalFolder --destinationArgs=[destination folder]
 ```
 
-Where:
-* [server address] = The address/IP of the source FTP server.
-* [username] = The username used to connect on FTP server.
-* [password] = The password used to connect on FTP server.
-* [destination folder] = The destination folder path.
-
 ####Ftp2Zip
 Backup items from a FTP server to a Zip file:
-```bash
+```
 mono BackupSharp.CommandLine.exe --sourceName=FTP --sourceArgs=[server address],[username],[password] --destinationName=Zip --destinationArgs=[destination folder]
 ```
 
-Where:
-* [server address] = The address/IP of the source FTP server.
-* [username] = The username used to connect on FTP server.
-* [password] = The password used to connect on FTP server.
-* [destination folder] = The destination folder where the Zip file will be generated.
-
 ####LocalFolder2Zip
 Backup items from a local folder to a Zip file:
-```bash
+```
 mono BackupSharp.CommandLine.exe --sourceName=LocalFolder --sourceArgs=[source id],[source folder] --destinationName=Zip --destinationArgs=[destination folder]
 ```
-Where:
-* [source id] = The ID used to identify source.
-* [source folder] = The path to the source folder.
-* [destination folder] = The destination folder where the Zip file will be generated.
-
 
 ###Using a .config file
 ```xml
@@ -171,7 +185,7 @@ mono BackupSharp.CommandLine.exe -f my_backups.config
 ```
 
 ##Using the library
-##Backup from MySQL to Zip
+##Running a backup from MySQL to Zip
 ```csharp
 var source = new MySqlBackupSource(connectionString);
 var destination = new ZipBackupDestination(destinationFolderPath);
