@@ -1,6 +1,6 @@
 #BackupSharp
 
-A C# library and command-line to backup your files from any source to any destination.
+A C# library and command-line to backup your items from any source to any destination.
 
 ##Sources & Destinations
 Bellow are the current available sources and destinations:
@@ -55,9 +55,33 @@ mono BackupSharp.CommandLine.exe --help
 * -v, --verbose            
 
 		Should log everything
-  
-###Explicit source and destination
+###Command-line source arguments
+####FTP
+```bash
+mono BackupSharp.CommandLine.exe --sourceName=FTP --sourceArgs=[server address],[username],[password] --destinationName=[destination] --destinationArgs=[destination args]
+```
+Where:
+* [server address] = The address/IP of the source FTP server.
+* [username] = The username used to connect on FTP server.
+* [password] = The password used to connect on FTP server.
 
+####Local folder
+```bash
+mono BackupSharp.CommandLine.exe --sourceName=LocalFolder --sourceArgs=[source id],[source folder] --destinationName=[destination] --destinationArgs=[destination args]
+```
+Where:
+* [source id] = The ID used to identify source.
+* [source folder] = The path to the source folder.
+
+####MySQL
+```bash
+mono BackupSharp.CommandLine.exe --sourceName=MySql --sourceArgs=[connection string] --destinationName=[destination] --destinationArgs=[destination args]
+```
+Where:
+* [connection string] = The connection string to MySQL database.
+
+###Command-line destination arguments
+###Command-line samples  
 ####Ftp2Dropbox
 Backup items from a FTP server to a Dropbox account:
 ```bash
@@ -107,8 +131,28 @@ Where:
 * [destination folder] = The destination folder where the Zip file will be generated.
 
 
-
 ###Using a .config file
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<backupSharp>
+	<sources>
+		<source type="LocalFolder" id="SourceFolder" args="temp/source" />		
+        <source type="MySql" id="SourceMySql" args="server=my_server_address;user=my_user;pwd=my_password;database=my_database_name;allowzerodatetime=true;" />
+	</sources>
+	
+	<destinations>
+		<destination type="Zip" id="DestinationZip" args="temp" />
+	</destinations>
+	
+	<backups>
+		<backup source="SourceFolder" destination="DestinationZip" />
+		<backup source="SourceMySql" destination="DestinationZip" />
+	</backups>
+</backupSharp>
+```
+```bash
+mono BackupSharp.CommandLine.exe -f my_backups.config
+```
 
 ##Using the library
 ##Backup from MySQL to Zip
@@ -164,11 +208,35 @@ public class SampleBackupDestination : BackupDestinationBase
         /// <param name="data">The data.</param>
         public override void StoreItem(IBackupItem item, byte[] data)
 		{
-			// Writes the item using informatou on item.DestinationFullName and the bytes from data argument.
+			// Writes the item using information on item.DestinationFullName and the bytes from data argument.
 		}
 }
 ```
 
+
+##FAQ
+
+####Having troubles? 
+ - Ask on [Stack Overflow](http://stackoverflow.com/search?q=BackupSharp)
+
 ##Roadmap
+* Package command-line to GitHub releases section.
+* Publish NuGet package.
 * New sources
 	* MS SQL Server 
+ 
+--------
+
+##How to improve it?
+- Create a fork of [BackupSharp](https://github.com/giacomelli/BackupSharp/fork). 
+- Did you change it? [Submit a pull request](https://github.com/giacomelli/BackupSharp/pull/new/master).
+
+
+##License
+
+Licensed under the The MIT License (MIT).
+In others words, you can use this library for developement any kind of software: open source, commercial, proprietary and alien.
+
+
+##Change Log
+ - 1.0.0 First version.
