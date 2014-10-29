@@ -15,7 +15,7 @@ Bellow are the current available sources and destinations:
 	* Zip
 		
 ##Using the command-line	
-###Command-line option
+###Command-line options
 ```bash
 mono BackupSharp.CommandLine.exe --help
 ```
@@ -55,10 +55,16 @@ mono BackupSharp.CommandLine.exe --help
 * -v, --verbose            
 
 		Should log everything
-###Command-line source arguments
+
+###Source arguments
+
 ####FTP
 ```bash
-mono BackupSharp.CommandLine.exe --sourceName=FTP --sourceArgs=[server address],[username],[password] --destinationName=[destination] --destinationArgs=[destination args]
+mono BackupSharp.CommandLine.exe 
+--sourceName=FTP 
+--sourceArgs=[server address],[username],[password] 
+--destinationName=[destination] 
+--destinationArgs=[destination args]
 ```
 Where:
 * [server address] = The address/IP of the source FTP server.
