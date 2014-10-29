@@ -12,6 +12,6 @@ before_install:
  - sudo installer -pkg "/Volumes/Mono Framework MDK ${MONO_VER}/MonoFramework-MDK-${MONO_VER}.macos10.xamarin.x86.pkg" -target /
  
 script:
-  - xbuild ./src/BackupSharp.sln /property:"Configuration=Debug;Platform=Any CPU" /p:"DefineConstants=TRAVIS_CI"
+  - xbuild ./src/BackupSharp.sln /property:"Configuration=Debug;Platform=x86" /p:"DefineConstants=TRAVIS_CI"
   - chmod 777 ./tools/nunit.sh
   - ./tools/nunit.sh ./src/BackupSharp.UnitTests/bin/Debug/BackupSharp.UnitTests.dll

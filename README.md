@@ -1,4 +1,5 @@
 #BackupSharp
+[![Build Status](https://travis-ci.org/giacomelli/BackupSharp.png?branch=master)](https://travis-ci.org/giacomelli/BackupSharp)
 
 A C# library and command-line to backup your items from any source to any destination.
 
