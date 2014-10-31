@@ -11,19 +11,15 @@ namespace BackupSharp.Sources
     /// A MySQL backup source.
     /// </summary>
     [DebuggerDisplay("MySql: {Id}")]
-    public class MySqlBackupSource : BackupSourceBase
+    public class MySqlBackupSource : DatabaseBackupSourceBase
     {
-        #region Fields
-        private string m_connectionString;
-        #endregion
-
         #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="MySqlBackupSource"/> class.
         /// </summary>
         /// <param name="connectionString">The connection string.</param>
         public MySqlBackupSource(string connectionString)
-            : this(connectionString, connectionString)
+            : base(connectionString)
         {
         }
 
@@ -33,26 +29,12 @@ namespace BackupSharp.Sources
         /// <param name="id">The identifier.</param>
         /// <param name="connectionString">The connection string.</param>
         public MySqlBackupSource(string id, string connectionString)
-            : base(id, "/")
+            : base(id, connectionString)
         {
-            ExceptionHelper.ThrowIfNullOrEmpty("connectionString", connectionString);
-
-            m_connectionString = connectionString;
         }
         #endregion
 
-        #region implemented abstract members of BackupSourceBase
-        /// <summary>
-        /// Gets the items.
-        /// </summary>
-        /// <returns>
-        /// The available items on source.
-        /// </returns>
-        public override IEnumerable<IBackupItem> GetItems()
-        {
-            return new BackupItem[] { new BackupItem("/database.backup.sql", BackupItemKind.File) };
-        }
-
+        #region implemented abstract members of DatabaseBackupSourceBase
         /// <summary>
         /// Reads the item.
         /// </summary>
@@ -64,7 +46,7 @@ namespace BackupSharp.Sources
         {
             var fileName = PathHelper.Combine(AppDomain.CurrentDomain.BaseDirectory, item.SourceFullName);
 
-            using (var conn = new MySqlConnection(m_connectionString))
+            using (var conn = new MySqlConnection(ConnectionString))
             {
                 using (var cmd = new MySqlCommand())
                 {
