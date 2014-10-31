@@ -277,9 +277,7 @@ To run the tests from BackupSharp.FunctionalTests project you will need to set s
 	- BackupSharpDropboxApiSecret
 	- BackupSharpDropboxAccessToken
 
-```
-We use environment variables to define those arguments to functional/integration tests because with environment variables we can encrypt the data to Travis-CI, like described in this tutorial [http://diegogiacomelli.com.br/2014/07/04/using-sensitive-data-on-your-travis-ci-build/](http://diegogiacomelli.com.br/2014/07/04/using-sensitive-data-on-your-travis-ci-build/ "Using sensitive data on your Travis-CI build")
-```
+> We use environment variables to define those arguments to functional/integration tests because with environment variables we can encrypt the data to Travis-CI, like described in this tutorial ["Using sensitive data on your Travis-CI build"](http://diegogiacomelli.com.br/2014/07/04/using-sensitive-data-on-your-travis-ci-build).
 
 ##FAQ
 
