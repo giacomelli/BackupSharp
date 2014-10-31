@@ -6,7 +6,7 @@ env:
   - secure: "TdQ31yN0Bv0HtIlkW+rVGnb69Q3JPEUMNkz5uldq40JTfbXLJDCYTLKXGZM2rt0m5WfcSJUmyoM0VQsWk1WHeT3xGmOx+APR3xdcbin7eqtivHBZr2csgAdU3Buky2+wH3RG6mwkRegXWPHWgdJYa4vNBvF2+DBNqZExe6On224="
   - secure: "TQiZLN3mhhIQ0N9o6riqef4fBnt44py8OSZhNM85UUrGbGaDC1yCIgJE2c1FUsnDdj2XrCtzsHL2LAXB+2Lmd5DSgeL5N3Va+C6CcCppTSZYYj+c6PBMqJMU6kB2bf8qRzWFaoMF6tlJ2vL5kZ7hj3qCqxcTeBiVmsGWuohGKcU="
   - secure: "E0XQ0Zy5cVkwv1+EGRrm+RxhChsbUny3xaURWsNcXy2G/vImRaaaKzMulPhYp0KNLMME5VirdxIUvilBFU/pfZHjU/RBpTpiQtBooA8zUe9X7u9uGe2HZgxbl92w/RXWeBOBT3AE1mPUXb/cySS8hEw3DX8JLkOfjag5Ng74J9c="
-  - BackupSharpFtpFolder: BackupSharp
+  - BackupSharpFtpFolder: Httpdocs/BackupSharpTest
   - secure: "CsWpqpOfWI6U2U00UEGcg4IqFtI19g7fawzepF0+5lPBFv0gQDKSykcTdyElXPyhrASmJy2gnRTfPePSz6kvN74aDhcnJaxqE7OVddxGpQHFXHTDbnh9W9lb9dhlQRn5q+tx1QjNhtnBsKu8YDvVdx1aMeZDDntX9BU5GxeSIOw="
   - secure: "GvuZWT1W7Q/EVG4Rg/XTK3bsWNotIsx1CCfEDG9caxgyx2B+EhtC19RpWT7G1sXYiWpcscYGNbK6Zo3qneLB7jtQBXsVzKpNOa91yjyOiA7laK5mof9HOmhcQKdcs5QNN6Qd3A2GHLMLa7tY0ho/gqHqqobQkGFP8pAs/afRzQI="
   - secure: "eu5HuiYGUpOzTR/pQqonGsD+1OfTKN10qm8zjyZQRMWfs9NP3leYQL1M1SxDvKw81cObs40i+fxNVUMrRM77tGX81//3aD19ssQnIgFiAibklE+1MXOp4SrlvIm7zVnfPmA52CO9FgPUnC9mdhOOKu+3lOopAosSRZV7zqPs6cU="
