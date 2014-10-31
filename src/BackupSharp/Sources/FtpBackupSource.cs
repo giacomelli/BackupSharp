@@ -132,6 +132,16 @@ namespace BackupSharp.Sources
         }
 
         /// <summary>
+        /// Terminates the source step.
+        /// </summary>
+        /// <param name="context">The backup context.</param>
+        public override void Terminate(BackupContext context)
+        {
+            base.Terminate(context);
+            m_ftpClient.Disconnect();
+        }
+
+        /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
         /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
