@@ -28,6 +28,9 @@ namespace BackupSharp
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Gets or sets the directory separator.
+        /// </summary>
         public static string DirectorySeparator { get; set; }
         #endregion
 

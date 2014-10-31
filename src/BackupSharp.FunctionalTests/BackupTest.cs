@@ -124,11 +124,11 @@ namespace BackupSharp.FunctionalTests
             var actual = target.Run();
 
             AssertMySqlBackupSourceResult(actual);
-            var dp = CreateDropboxClient ();
+            var dp = CreateDropboxClient();
 
             var rootFolder = dp.GetMetaData(source.Id);
             Assert.AreEqual(1, rootFolder.Contents.Count);
-            Assert.IsFalse (rootFolder.Contents [0].Is_Dir);
+            Assert.IsFalse(rootFolder.Contents[0].Is_Dir);
         }
 
         [Test]
@@ -141,7 +141,7 @@ namespace BackupSharp.FunctionalTests
             var destination = new LocalFolderBackupDestination(localFolderDestination);
             var target = CreateBackup(source, destination);
             var actual = target.Run();
-            
+
             AssertMySqlBackupSourceResult(actual);
 
             var rootFolder = Path.Combine(localFolderDestination, target.Naming.RootPath);
@@ -164,12 +164,12 @@ namespace BackupSharp.FunctionalTests
             TestSharp.FileAssert.Exists(destination.ZipFileName);
             var extractFolder = Path.Combine(Path.GetDirectoryName(destination.ZipFileName), "extract");
 
-            PathHelper.EnsureClearFolder (extractFolder);
+            PathHelper.EnsureClearFolder(extractFolder);
 
             using (var zipFile = ZipFile.Read(destination.ZipFileName))
             {
-                Assert.AreEqual (0, zipFile.Count (e => e.IsDirectory));
-                Assert.AreEqual (1, zipFile.Count (e => e.FileName.EndsWith(".sql")));
+                Assert.AreEqual(0, zipFile.Count(e => e.IsDirectory));
+                Assert.AreEqual(1, zipFile.Count(e => e.FileName.EndsWith(".sql")));
             }
         }
         #endregion
@@ -197,9 +197,18 @@ namespace BackupSharp.FunctionalTests
             return new LocalFolderBackupSource(sourceId, sourceFolder);
         }
 
-        private static MySqlBackupSource CreateMySqlSource()
+        public static MySqlBackupSource CreateMySqlSource()
         {
-            var connectionString = Environment.GetEnvironmentVariable("BackupSharpMySqlConnectionString");
+            var server = Environment.GetEnvironmentVariable("BackupSharpMySqlServer");
+            var username = Environment.GetEnvironmentVariable("BackupSharpMySqlUserName");
+            var password = Environment.GetEnvironmentVariable("BackupSharpMySqlPassword");
+            var database = Environment.GetEnvironmentVariable("BackupSharpMySqlDatabase");
+            var connectionString = "server={0};user={1};pwd={2};database={3};allowzerodatetime=true;".With(
+                server,
+                username,
+                password,
+                database);
+
             return new MySqlBackupSource(connectionString);
         }
 
@@ -273,7 +282,7 @@ namespace BackupSharp.FunctionalTests
 
         private static void AssertResultToDropbox(IBackupSource source)
         {
-            var dp = CreateDropboxClient ();
+            var dp = CreateDropboxClient();
 
             var rootFolder = dp.GetMetaData(source.Id);
             Assert.AreEqual(1, rootFolder.Contents.Count);
@@ -293,7 +302,7 @@ namespace BackupSharp.FunctionalTests
             TestSharp.FileAssert.Exists(destination.ZipFileName);
             var extractFolder = Path.Combine(Path.GetDirectoryName(destination.ZipFileName), "extract");
 
-            PathHelper.EnsureClearFolder (extractFolder);
+            PathHelper.EnsureClearFolder(extractFolder);
 
             using (var zipFile = ZipFile.Read(destination.ZipFileName))
             {
@@ -303,12 +312,12 @@ namespace BackupSharp.FunctionalTests
             AssertResultToLocalFolder(extractFolder);
         }
 
-        private static DropNetClient CreateDropboxClient ()
+        private static DropNetClient CreateDropboxClient()
         {
-            var dpApiKey = Environment.GetEnvironmentVariable ("BackupSharpDropboxApiKey");
-            var dpApiSecret = Environment.GetEnvironmentVariable ("BackupSharpDropboxApiSecret");
-            var dpAccessToken = Environment.GetEnvironmentVariable ("BackupSharpDropboxAccessToken");
-            var dp = new DropNetClient (dpApiKey, dpApiSecret, dpAccessToken);
+            var dpApiKey = Environment.GetEnvironmentVariable("BackupSharpDropboxApiKey");
+            var dpApiSecret = Environment.GetEnvironmentVariable("BackupSharpDropboxApiSecret");
+            var dpAccessToken = Environment.GetEnvironmentVariable("BackupSharpDropboxAccessToken");
+            var dp = new DropNetClient(dpApiKey, dpApiSecret, dpAccessToken);
             dp.UseSandbox = true;
 
             return dp;

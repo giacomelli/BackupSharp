@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
-using BackupSharp.Sources;
 using NUnit.Framework;
 
 namespace BackupSharp.FunctionalTests
@@ -13,8 +11,7 @@ namespace BackupSharp.FunctionalTests
         [Test()]
         public void GetItems_ValidConnectionString_SqlDumpFileFound()
         {
-            var connectionString = Environment.GetEnvironmentVariable("BackupSharpMySqlConnectionString");
-            var target = new MySqlBackupSource(connectionString);
+            var target = BackupTest.CreateMySqlSource();
 
             var actual = target.GetItems();
             Assert.AreEqual(1, actual.Count());

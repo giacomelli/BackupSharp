@@ -3,6 +3,17 @@ language: objective-c
 env:
  global:
   - EnableNuGetPackageRestore=true 
+  - secure: "TdQ31yN0Bv0HtIlkW+rVGnb69Q3JPEUMNkz5uldq40JTfbXLJDCYTLKXGZM2rt0m5WfcSJUmyoM0VQsWk1WHeT3xGmOx+APR3xdcbin7eqtivHBZr2csgAdU3Buky2+wH3RG6mwkRegXWPHWgdJYa4vNBvF2+DBNqZExe6On224="
+  - secure: "TQiZLN3mhhIQ0N9o6riqef4fBnt44py8OSZhNM85UUrGbGaDC1yCIgJE2c1FUsnDdj2XrCtzsHL2LAXB+2Lmd5DSgeL5N3Va+C6CcCppTSZYYj+c6PBMqJMU6kB2bf8qRzWFaoMF6tlJ2vL5kZ7hj3qCqxcTeBiVmsGWuohGKcU="
+  - secure: "E0XQ0Zy5cVkwv1+EGRrm+RxhChsbUny3xaURWsNcXy2G/vImRaaaKzMulPhYp0KNLMME5VirdxIUvilBFU/pfZHjU/RBpTpiQtBooA8zUe9X7u9uGe2HZgxbl92w/RXWeBOBT3AE1mPUXb/cySS8hEw3DX8JLkOfjag5Ng74J9c="
+  - secure: "axICza7ShJ/j0bt93kK6Zoynowp6pPlwo9VYCa63b/wzauzJ1Djg+kORpkv5qHUo357FBn2IhUdD6ICPc8dUZigpHG261iHgGSl3+MLAUs1RewxRYefsD3pIJZgUx0/kC2kgW0zdkpxeL8q5FBa5lLbIjg4aaQazNmdE0YoIaR8="
+  - secure: "CsWpqpOfWI6U2U00UEGcg4IqFtI19g7fawzepF0+5lPBFv0gQDKSykcTdyElXPyhrASmJy2gnRTfPePSz6kvN74aDhcnJaxqE7OVddxGpQHFXHTDbnh9W9lb9dhlQRn5q+tx1QjNhtnBsKu8YDvVdx1aMeZDDntX9BU5GxeSIOw="
+  - secure: "GvuZWT1W7Q/EVG4Rg/XTK3bsWNotIsx1CCfEDG9caxgyx2B+EhtC19RpWT7G1sXYiWpcscYGNbK6Zo3qneLB7jtQBXsVzKpNOa91yjyOiA7laK5mof9HOmhcQKdcs5QNN6Qd3A2GHLMLa7tY0ho/gqHqqobQkGFP8pAs/afRzQI="
+  - secure: "eu5HuiYGUpOzTR/pQqonGsD+1OfTKN10qm8zjyZQRMWfs9NP3leYQL1M1SxDvKw81cObs40i+fxNVUMrRM77tGX81//3aD19ssQnIgFiAibklE+1MXOp4SrlvIm7zVnfPmA52CO9FgPUnC9mdhOOKu+3lOopAosSRZV7zqPs6cU="
+  - secure: "F+JnQxpYavvFcb2aoO6pCjK2Acww2onBa/mqgglN/jEEaz6twZDNT0t96SnPFzqAe0Uk43PP+fYXMzGiSA/GDfYm4TgZyGDDvwj33li3VAvV0T70Qr3RViZ1ZZNfB2Q+SEKGuFwLWqZNwqnDymO0ON4JXoqUuw1hTUXRq8mjbAM="
+  - secure: "aeSt/1eO5jE3qVpCJ0PfapqQ/MFVRe9baSNw3AVtgpY+r0I6qAh7/9l0LYM30BTF4s5owb90OtotEkdYxfI8HnqvypuzNBIxzHBaheMNr30ElDE4QwE9R9uPON+h+R/s0e59ySa3Un1QtWdYKLLc75/SURRRwi2frHrMuB6BT8Q="
+  - secure: "cqjNDG8CNu+0eZp6GJK17BG+snhxmMEjQkqx8ai6UIqQR58Ep2CpFdaT44Sq+iApozRGNICabMftnGsAUkvmNJjnSYR4UODsY7cq6pxR3E4+8MvOU7c1tlSRjY34oCtq1GWD7LRMdMjeQZ6IKft43lvISP7W2GxpaB5bTzG4Z4M="
+  - secure: "KyUV513KMkmsX7zK0LgO5yMkPoHrFfC4X7r04nPm0qSlzMQXhM6DB5GuFX3EnPnj/+dBn8C5gSPKU15/P+tWWc6q9OqdbWzTXFcTfjPJjTkR3C+jqmfMNHdeQDuzdgL0uAMQ+RbMcbsF3WQFf6t9VVHiKYWHQWzLdj6hT3GBF+c="
  matrix:
   - MONO_VER="3.0.12"
 
@@ -15,3 +26,5 @@ script:
   - xbuild ./src/BackupSharp.sln /property:"Configuration=Debug;Platform=x86" /p:"DefineConstants=TRAVIS_CI"
   - chmod 777 ./tools/nunit.sh
   - ./tools/nunit.sh ./src/BackupSharp.UnitTests/bin/Debug/BackupSharp.UnitTests.dll
+  - ./tools/nunit.sh ./src/BackupSharp.FunctionalTests/bin/Debug/BackupSharp.FunctionalTests.dll
+  - ./tools/nunit.sh ./src/BackupSharp.CommandLine.FunctionalTests/bin/Debug/BackupSharp.CommandLine.FunctionalTests.dll
