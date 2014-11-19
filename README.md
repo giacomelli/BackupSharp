@@ -4,7 +4,7 @@
 A C# library and command-line to backup your items from any source to any destination.
 
 ##Sources & Destinations
-Bellow are the current available sources and destinations:
+Below are the current available sources and destinations:
 
 * Sources
 	* FTP
