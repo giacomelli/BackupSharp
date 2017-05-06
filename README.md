@@ -1,9 +1,8 @@
-#BackupSharp
-[![Build Status](https://travis-ci.org/giacomelli/BackupSharp.png?branch=master)](https://travis-ci.org/giacomelli/BackupSharp)
+# BackupSharp
 
 A C# library and command-line to backup your items from any source to any destination.
 
-##Sources & Destinations
+## Sources & Destinations
 Below are the current available sources and destinations:
 
 * Sources
@@ -15,8 +14,8 @@ Below are the current available sources and destinations:
 	* Local Folder
 	* Zip
 		
-##Using the command-line	
-###Command-line options
+## Using the command-line	
+### Command-line options
 ```bash
 mono BackupSharp.CommandLine.exe --help
 ```
@@ -57,9 +56,9 @@ mono BackupSharp.CommandLine.exe --help
 
 		Should log everything
 
-###Source arguments
+### Source arguments
 
-####FTP
+#### FTP
 ```
 mono BackupSharp.CommandLine.exe 
 --sourceName=FTP 
@@ -72,7 +71,7 @@ Where:
 * [username] = The username used to connect on FTP server.
 * [password] = The password used to connect on FTP server.
 
-####Local folder
+#### Local folder
 ```
 mono BackupSharp.CommandLine.exe 
 --sourceName=LocalFolder 
@@ -84,7 +83,7 @@ Where:
 * [source id] = The ID used to identify source.
 * [source folder] = The path to the source folder.
 
-####MySQL
+#### MySQL
 ```
 mono BackupSharp.CommandLine.exe 
 --sourceName=MySql 
@@ -95,9 +94,9 @@ mono BackupSharp.CommandLine.exe
 Where:
 * [connection string] = The connection string to MySQL database.
 
-###Destination arguments
+### Destination arguments
 
-####Dropbox
+#### Dropbox
 ```
 mono BackupSharp.CommandLine.exe 
 --sourceName=[source] 
@@ -124,7 +123,7 @@ mono BackupSharp.CommandLine.exe
 Where:
 * [destination folder] = The destination folder path.
 
-####Zip
+#### Zip
 ```
 mono BackupSharp.CommandLine.exe 
 --sourceName=[source] 
@@ -135,9 +134,9 @@ mono BackupSharp.CommandLine.exe
 Where:
 * [destination folder] = The destination folder where the Zip file will be generated.
 
-###Samples  
+### Samples  
 
-####Ftp2Dropbox
+#### Ftp2Dropbox
 Backup items from a FTP server to a Dropbox account:
 ```
 mono BackupSharp.CommandLine.exe 
@@ -147,7 +146,7 @@ mono BackupSharp.CommandLine.exe
 --destinationArgs=[API key],[API secret],[access token]
 ```
 
-####Ftp2LocalFolder
+#### Ftp2LocalFolder
 Backup items from a FTP server to a local folder:
 ```
 mono BackupSharp.CommandLine.exe 
@@ -157,7 +156,7 @@ mono BackupSharp.CommandLine.exe
 --destinationArgs=[destination folder]
 ```
 
-####Ftp2Zip
+#### Ftp2Zip
 Backup items from a FTP server to a Zip file:
 ```
 mono BackupSharp.CommandLine.exe 
@@ -167,7 +166,7 @@ mono BackupSharp.CommandLine.exe
 --destinationArgs=[destination folder]
 ```
 
-####LocalFolder2Zip
+#### LocalFolder2Zip
 Backup items from a local folder to a Zip file:
 ```
 mono BackupSharp.CommandLine.exe 
@@ -177,7 +176,7 @@ mono BackupSharp.CommandLine.exe
 --destinationArgs=[destination folder]
 ```
 
-###Using a .config file
+### Using a .config file
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <backupSharp>
@@ -200,8 +199,8 @@ mono BackupSharp.CommandLine.exe
 mono BackupSharp.CommandLine.exe -f my_backups.config
 ```
 
-##Using the library
-##Running a backup from MySQL to Zip
+## Using the library
+### Running a backup from MySQL to Zip
 ```csharp
 var source = new MySqlBackupSource(connectionString);
 var destination = new ZipBackupDestination(destinationFolderPath);
@@ -209,7 +208,7 @@ var backup = new Backup(source, destination);
 backup.Run();
 ```
 
-###Creating a new backup source
+### Creating a new backup source
 To implement a new backup source you can implement the IBackupSource interface or inherit from BackupSourceBase:
 
 ```csharp
@@ -241,7 +240,7 @@ public class SampleBackupSource : BackupSourceBase
 }
 ```
 
-###Creating a new backup destination
+### Creating a new backup destination
 To implement a new backup destination you can implement the IBackupDestination interface or inherit from BackupDestinationBase:
 
 ```csharp
@@ -259,7 +258,7 @@ public class SampleBackupDestination : BackupDestinationBase
 }
 ```
 
-##Running the functional tests
+## Running the functional tests
 To run the tests from BackupSharp.FunctionalTests project you will need to set some environment variables:
 
 - FTP
@@ -279,12 +278,12 @@ To run the tests from BackupSharp.FunctionalTests project you will need to set s
 
 > We use environment variables to define those arguments to functional/integration tests because with environment variables we can encrypt the data to Travis-CI, like described in this tutorial ["Using sensitive data on your Travis-CI build"](http://diegogiacomelli.com.br/2014/07/04/using-sensitive-data-on-your-travis-ci-build).
 
-##FAQ
+## FAQ
 
-####Having troubles? 
+#### Having troubles? 
  - Ask on [Stack Overflow](http://stackoverflow.com/search?q=BackupSharp)
 
-##Roadmap
+## Roadmap
 * Package command-line to GitHub releases section.
 * Publish NuGet package.
 * New sources
@@ -292,16 +291,12 @@ To run the tests from BackupSharp.FunctionalTests project you will need to set s
  
 --------
 
-##How to improve it?
+## How to improve it?
 - Create a fork of [BackupSharp](https://github.com/giacomelli/BackupSharp/fork). 
 - Did you change it? [Submit a pull request](https://github.com/giacomelli/BackupSharp/pull/new/master).
 
 
-##License
+## License
 
 Licensed under the The MIT License (MIT).
 In others words, you can use this library for developement any kind of software: open source, commercial, proprietary and alien.
-
-
-##Change Log
- - 1.0.0 First version.
